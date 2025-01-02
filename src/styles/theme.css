@@ -1,0 +1,33 @@
+/* Light Theme Colors */
+:root {
+  --color-primary: #F4ED1F;
+  --color-primary-dark: #E6DF11;
+  --color-primary-light: #F7F159;
+  
+  --color-background: #FFFFFF;
+  --color-surface: #F8F9FA;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  
+  --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  --gradient-surface: linear-gradient(135deg, var(--color-surface), white);
+}
+
+/* Dark Theme Colors */
+.dark {
+  --color-background: #030712;
+  --color-surface: #111827;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #9CA3AF;
+  
+  --shadow-sm: 0 2px 4px rgba(244, 237, 31, 0.05);
+  --shadow-md: 0 4px 8px rgba(244, 237, 31, 0.1);
+  --shadow-lg: 0 8px 16px rgba(244, 237, 31, 0.1);
+  
+  --gradient-primary: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  --gradient-surface: linear-gradient(135deg, var(--color-surface), #1F2937);
+}

@@ -1,0 +1,45 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import './styles/animations.css';
+@import './styles/components.css';
+@import './styles/noise.css';
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-white bg-black overflow-x-hidden;
+  }
+
+  /* Smooth section transitions */
+  section {
+    @apply transition-opacity duration-500;
+  }
+
+  /* Improve spacing between sections */
+  section + section {
+    @apply relative;
+  }
+
+  section + section::before {
+    content: '';
+    @apply absolute -top-24 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-black/50 pointer-events-none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#F4ED1F]/20 rounded-full hover:bg-[#F4ED1F]/30 transition-colors;
+}

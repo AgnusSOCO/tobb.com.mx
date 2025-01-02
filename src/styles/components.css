@@ -1,0 +1,65 @@
+/* Modern Card Styles */
+.glass-card {
+  @apply relative overflow-hidden rounded-2xl;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(244, 237, 31, 0.2);
+}
+
+/* Modern Button Styles */
+.btn-primary {
+  @apply relative overflow-hidden px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  background: linear-gradient(45deg, #F4ED1F, #FFD700);
+  box-shadow: 0 4px 15px rgba(244, 237, 31, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 237, 31, 0.3);
+}
+
+.btn-primary::after {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+  background: linear-gradient(45deg, #FFD700, #F4ED1F);
+}
+
+.btn-primary:hover::after {
+  @apply opacity-100;
+}
+
+/* Modern Input Styles */
+.input-modern {
+  @apply w-full px-4 py-3 bg-transparent border rounded-lg transition-all duration-300;
+  border-color: rgba(244, 237, 31, 0.2);
+}
+
+.input-modern:focus {
+  @apply outline-none;
+  border-color: rgba(244, 237, 31, 0.5);
+  box-shadow: 0 0 0 2px rgba(244, 237, 31, 0.1);
+}
+
+/* Decorative Elements */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #F4ED1F, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
