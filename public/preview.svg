@@ -1,0 +1,53 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="1200" height="630" fill="url(#backgroundGradient)"/>
+  
+  <!-- Mexico City Skyline -->
+  <path d="M0 430 L50 440 L100 420 L150 430 L200 410 L250 420 L300 400 L350 430 
+           L400 410 L450 420 L500 390 L550 430 L600 400 L650 420 L700 380 L750 430 
+           L800 400 L850 420 L900 390 L950 430 L1000 400 L1050 420 L1100 380 L1150 430 
+           L1200 410 L1200 630 L0 630 Z" 
+        fill="url(#skylineGradient)" opacity="0.8"/>
+
+  <!-- Angel of Independence silhouette -->
+  <path d="M580 250 L600 100 L620 250 L580 250 Z M560 250 L640 250 L600 280 Z" 
+        fill="#F4ED1F" opacity="0.3"/>
+
+  <!-- Latin American Tower silhouette -->
+  <path d="M500 300 L520 150 L540 300 Z" fill="#F4ED1F" opacity="0.2"/>
+
+  <!-- Company Name -->
+  <text x="600" y="200" text-anchor="middle" class="company-name" 
+        style="font-size: 120px; font-weight: bold; fill: #F4ED1F; font-family: monospace;">
+    több
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="280" text-anchor="middle" class="tagline"
+        style="font-size: 32px; fill: white; font-family: sans-serif;">
+    Securing Tomorrow, Innovating Today
+  </text>
+
+  <!-- Decorative elements -->
+  <circle cx="200" cy="200" r="100" fill="url(#glowGradient)" opacity="0.1"/>
+  <circle cx="1000" cy="400" r="150" fill="url(#glowGradient)" opacity="0.1"/>
+
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#030712"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+
+    <linearGradient id="skylineGradient" x1="600" y1="380" x2="600" y2="630">
+      <stop offset="0%" stop-color="#F4ED1F" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#F4ED1F" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="glowGradient" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#F4ED1F"/>
+      <stop offset="100%" stop-color="#F4ED1F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
