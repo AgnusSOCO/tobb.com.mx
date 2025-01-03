@@ -7,7 +7,7 @@ export const clients = [
   },
   {
     name: 'CONADE',
-    logo: 'https://commons.wikimedia.org/wiki/File:Logo_CONADE.png',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Logo_CONADE_%282%29.png',
     description: 'National Commission of Physical Culture and Sports',
     descriptionEs: 'Comisión Nacional de Cultura Física y Deporte'
   },
