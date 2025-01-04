@@ -3,6 +3,7 @@ import type { Language } from '../types';
 import { Button } from './ui/Button';
 import { GradientText } from './decorative/GradientText';
 import { Section } from './ui/Section';
+import { scrollToSection } from '../utils/scroll';
 
 interface Props {
   language: Language;
@@ -33,16 +34,14 @@ export function Hero({ language }: Props) {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
-            as="a"
-            href="#services"
+            onClick={() => scrollToSection('services')}
             variant="primary"
             size="lg"
           >
             {language === 'en' ? 'Explore Our Services' : 'Explorar Servicios'}
           </Button>
           <Button
-            as="a"
-            href="#about"
+            onClick={() => scrollToSection('about')}
             variant="outline"
             size="lg"
           >
