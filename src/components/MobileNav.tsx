@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, X, Home, Briefcase, Users, TestTube2, Building2, Phone, Users2 } from 'lucide-react';
+import { Menu, X, Home, Briefcase, Users, TestTube2, Building2, Phone, Users2, Image } from 'lucide-react';
 import type { Language } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -12,6 +12,7 @@ const navItems = [
   { id: 'services', icon: Briefcase, href: '#services', labelEn: 'Services', labelEs: 'Servicios' },
   { id: 'about', icon: Users, href: '#about', labelEn: 'About', labelEs: 'Nosotros' },
   { id: 'innovation-lab', icon: TestTube2, href: '#innovation-lab', labelEn: 'Innovation', labelEs: 'Innovación' },
+  { id: 'gallery', icon: Image, href: '#gallery', labelEn: 'Gallery', labelEs: 'Galería' },
   { id: 'clients', icon: Users2, href: '#clients', labelEn: 'Clients', labelEs: 'Clientes' },
   { id: 'partners', icon: Building2, href: '#partners', labelEn: 'Partners', labelEs: 'Socios' },
   { id: 'contact', icon: Phone, href: '#contact', labelEn: 'Contact', labelEs: 'Contacto' }
