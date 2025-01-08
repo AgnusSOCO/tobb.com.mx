@@ -27,12 +27,12 @@ export const projectMedia = [
     descriptionEs: 'Mostramos a nuestro técnico instalando una cámara de seguridad de alta calidad con precisión. Esto refleja nuestra dedicación a proporcionar soluciones de seguridad de primera clase y servicio profesional para nuestros clientes.'
   },
   {
-    id: 'attention-to-detail',
+    id: 'advanced-networking',
     type: 'image',
     url: '/gallery-4.jpg',
-    title: 'Attention to Detail',
-    titleEs: 'Atención al Detalle',
-    description: 'A close-up of our technician securing the final touches on a security camera installation. This image emphasizes our attention to detail and commitment to excellence in every project.',
-    descriptionEs: 'Una toma cercana de nuestro técnico asegurando los últimos detalles en la instalación de una cámara de seguridad. Esta imagen enfatiza nuestra atención al detalle y compromiso con la excelencia en cada proyecto.'
+    title: 'Advanced Networking Infrastructure',
+    titleEs: 'Infraestructura de Redes Avanzada',
+    description: 'A close-up view of a meticulously organized network switch with labeled Ethernet cables. This image represents our expertise in setting up and managing reliable and high-performance network systems, ensuring seamless connectivity for our clients.',
+    descriptionEs: 'Una vista detallada de un switch de red meticulosamente organizado con cables Ethernet etiquetados. Esta imagen representa nuestra experiencia en la configuración y gestión de sistemas de red confiables y de alto rendimiento, asegurando una conectividad perfecta para nuestros clientes.'
   }
 ];
