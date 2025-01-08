@@ -1,38 +1,38 @@
 export const projectMedia = [
   {
-    id: 'soc-center',
+    id: 'team-collaboration',
     type: 'image',
-    url: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80',
-    title: 'SOC Center Operations',
-    titleEs: 'Operaciones del Centro SOC',
-    description: 'Our state-of-the-art Security Operations Center',
-    descriptionEs: 'Nuestro Centro de Operaciones de Seguridad de última generación'
+    url: '/gallery-1.jpg',
+    title: 'Team Collaboration',
+    titleEs: 'Colaboración en Equipo',
+    description: 'A vibrant office environment showcasing our dedicated customer support and administrative team working in unison. Their commitment to providing exceptional service is reflected in their professionalism and enthusiasm.',
+    descriptionEs: 'Un entorno de oficina vibrante que muestra a nuestro dedicado equipo de soporte al cliente y administrativo trabajando en conjunto. Su compromiso con un servicio excepcional se refleja en su profesionalismo y entusiasmo.'
   },
   {
-    id: 'ai-lab',
+    id: 'efficient-logistics',
     type: 'image',
-    url: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80',
-    title: 'AI Research Lab',
-    titleEs: 'Laboratorio de Investigación de IA',
-    description: 'Advanced AI development and testing facility',
-    descriptionEs: 'Instalación de desarrollo y pruebas de IA avanzada'
+    url: '/gallery-2.jpg',
+    title: 'Efficient Logistics',
+    titleEs: 'Logística Eficiente',
+    description: 'Highlighting the seamless delivery and logistics operations of our company. One of our team members is transporting a carefully packaged product to ensure it reaches our clients securely and on time.',
+    descriptionEs: 'Destacamos las operaciones de entrega y logística impecables de nuestra empresa. Uno de nuestros colaboradores transporta un producto cuidadosamente empaquetado para garantizar que llegue a nuestros clientes de manera segura y puntual.'
   },
   {
-    id: 'data-center',
-    type: 'video',
-    url: 'https://player.vimeo.com/video/225408543',
-    title: 'Data Center Tour',
-    titleEs: 'Recorrido del Centro de Datos',
-    description: 'Virtual tour of our secure data center facilities',
-    descriptionEs: 'Recorrido virtual de nuestras instalaciones seguras de centros de datos'
+    id: 'professional-installation',
+    type: 'image',
+    url: '/gallery-3.jpg',
+    title: 'Professional Installation',
+    titleEs: 'Instalación Profesional',
+    description: 'Showcasing our technician installing a high-quality security camera with precision. This reflects our dedication to providing top-tier security solutions and professional service for our clients.',
+    descriptionEs: 'Mostramos a nuestro técnico instalando una cámara de seguridad de alta calidad con precisión. Esto refleja nuestra dedicación a proporcionar soluciones de seguridad de primera clase y servicio profesional para nuestros clientes.'
   },
   {
-    id: 'cyber-defense',
+    id: 'attention-to-detail',
     type: 'image',
-    url: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80',
-    title: 'Cyber Defense Systems',
-    titleEs: 'Sistemas de Defensa Cibernética',
-    description: 'Real-time threat monitoring and response',
-    descriptionEs: 'Monitoreo y respuesta a amenazas en tiempo real'
+    url: '/gallery-4.jpg',
+    title: 'Attention to Detail',
+    titleEs: 'Atención al Detalle',
+    description: 'A close-up of our technician securing the final touches on a security camera installation. This image emphasizes our attention to detail and commitment to excellence in every project.',
+    descriptionEs: 'Una toma cercana de nuestro técnico asegurando los últimos detalles en la instalación de una cámara de seguridad. Esta imagen enfatiza nuestra atención al detalle y compromiso con la excelencia en cada proyecto.'
   }
 ];
