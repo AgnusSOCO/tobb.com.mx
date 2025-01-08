@@ -4,6 +4,7 @@ import { Services } from '../components/Services';
 import { About } from '../components/About';
 import { InnovationLab } from '../components/InnovationLab';
 import { FinancialServices } from '../components/FinancialServices';
+import { ProjectGallery } from '../components/ProjectGallery';
 import { Certifications } from '../components/Certifications';
 import { Testimonials } from '../components/Testimonials';
 import { Clients } from '../components/Clients';
@@ -22,6 +23,7 @@ export function HomePage({ language }: Props) {
       <Services language={language} />
       <About language={language} />
       <InnovationLab language={language} />
+      <ProjectGallery language={language} />
       <FinancialServices language={language} />
       <Certifications language={language} />
       <Testimonials language={language} />
