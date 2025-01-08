@@ -32,7 +32,7 @@ export const projectMedia = [
     url: '/gallery-4.jpg',
     title: 'Advanced Networking Infrastructure',
     titleEs: 'Infraestructura de Redes Avanzada',
-    description: 'A close-up view of a meticulously organized network switch with labeled Ethernet cables. This image represents our expertise in setting up and managing reliable and high-performance network systems, ensuring seamless connectivity for our clients.',
-    descriptionEs: 'Una vista detallada de un switch de red meticulosamente organizado con cables Ethernet etiquetados. Esta imagen representa nuestra experiencia en la configuración y gestión de sistemas de red confiables y de alto rendimiento, asegurando una conectividad perfecta para nuestros clientes.'
+    description: 'A well-organized network switch showcasing our expertise in reliable and efficient connectivity solutions.',
+    descriptionEs: 'Un switch de red organizado que refleja nuestra experiencia en soluciones de conectividad confiables y eficientes.'
   }
 ];
