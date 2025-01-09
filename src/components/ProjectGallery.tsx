@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play } from 'lucide-react';
+import { Play, X } from 'lucide-react';
 import type { Language } from '../types';
 import { Section } from './ui/Section';
 import { GradientText } from './decorative/GradientText';
@@ -71,29 +71,39 @@ export function ProjectGallery({ language }: Props) {
       {/* Media Preview Modal */}
       {selectedMedia && (
         <Dialog onClose={() => setSelectedMedia(null)} size="xl">
-          <div className="aspect-video w-full overflow-hidden rounded-lg">
-            {selectedMedia.type === 'image' ? (
-              <img
-                src={selectedMedia.url}
-                alt={language === 'en' ? selectedMedia.title : selectedMedia.titleEs}
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <iframe
-                src={selectedMedia.url}
-                className="h-full w-full"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
-            )}
-          </div>
-          <div className="mt-4">
-            <h3 className="text-xl font-bold text-white">
-              {language === 'en' ? selectedMedia.title : selectedMedia.titleEs}
-            </h3>
-            <p className="mt-2 text-gray-300">
-              {language === 'en' ? selectedMedia.description : selectedMedia.descriptionEs}
-            </p>
+          <div className="relative bg-black/90 backdrop-blur-xl rounded-2xl overflow-hidden">
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedMedia(null)}
+              className="absolute top-4 right-4 z-50 p-2 rounded-lg bg-black/50 hover:bg-black/70 transition-colors group"
+            >
+              <X className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
+            </button>
+
+            <div className="aspect-video w-full overflow-hidden">
+              {selectedMedia.type === 'image' ? (
+                <img
+                  src={selectedMedia.url}
+                  alt={language === 'en' ? selectedMedia.title : selectedMedia.titleEs}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <iframe
+                  src={selectedMedia.url}
+                  className="h-full w-full"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              )}
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-white">
+                {language === 'en' ? selectedMedia.title : selectedMedia.titleEs}
+              </h3>
+              <p className="mt-2 text-gray-300">
+                {language === 'en' ? selectedMedia.description : selectedMedia.descriptionEs}
+              </p>
+            </div>
           </div>
         </Dialog>
       )}
