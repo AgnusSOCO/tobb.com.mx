@@ -14,10 +14,15 @@ interface Props {
 export function ArticleCard({ article, language }: Props) {
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate(`/articles/${article.id}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <Card 
       className="group cursor-pointer overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300"
-      onClick={() => navigate(`/articles/${article.id}`)}
+      onClick={handleClick}
     >
       <div className="relative h-48 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
