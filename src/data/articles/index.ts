@@ -1,14 +1,17 @@
-import type { Article } from '../../types/article';
+import { Article } from '../../types/article';
+import { phishingGtldsArticle } from './phishing-gtlds';
 import { firescamArticle } from './firescam';
 import { miraiArticle } from './mirai';
 import { ukraineEspionageArticle } from './ukraine-espionage';
 
 export const articles: Article[] = [
-  ukraineEspionageArticle, // Most recent first
+  phishingGtldsArticle, // Most recent first
+  ukraineEspionageArticle,
   firescamArticle,
-  miraiArticle
+  miraiArticle,
 ];
 
+export * from './phishing-gtlds';
 export * from './firescam';
 export * from './mirai';
 export * from './ukraine-espionage';
