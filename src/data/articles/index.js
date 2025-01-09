@@ -4,10 +4,10 @@ import { miraiArticle } from './mirai';
 import { ukraineEspionageArticle } from './ukraine-espionage';
 
 export const articles = [
-  ukraineEspionageArticle, // Most recent first
+  ukraineEspionageArticle,
   firescamArticle,
-  miraiArticle,
-] as const;
+  miraiArticle
+];
 
 export * from './firescam';
 export * from './mirai';
