@@ -17,6 +17,11 @@ export function InnovationLab({ language }: Props) {
   const navigate = useNavigate();
   const latestArticles = articles.slice(0, 3); // Show only the 3 most recent articles
 
+  const handleNavigate = () => {
+    navigate('/innovation-lab');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <Section id="innovation-lab" className="relative">
       <div className="text-center mb-16 animate-fade-in-up">
@@ -34,7 +39,7 @@ export function InnovationLab({ language }: Props) {
         {/* Innovation Lab Button */}
         <div className="flex justify-center">
           <Button
-            onClick={() => navigate('/innovation-lab')}
+            onClick={handleNavigate}
             className="group relative overflow-hidden"
             size="lg"
           >
@@ -59,7 +64,6 @@ export function InnovationLab({ language }: Props) {
             <ArticleCard
               article={article}
               language={language}
-              onClick={() => navigate(`/innovation-lab/articles/${article.id}`)}
             />
           </motion.div>
         ))}
