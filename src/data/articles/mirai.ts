@@ -2,7 +2,7 @@ import type { Article } from '../../types/article';
 
 export const miraiArticle: Article = {
   id: 'mirai-botnet-four-faith',
-  date: '2024-03-14',
+  date: '2025-01-08',
   type: 'security',
   image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTE3bIh1TuXKvpQH8Z0CyQ3JKpEZz5P5Itjj6zkYwatUvJeCfh-oeGGnNRHN-unji8nqsmrGTbeuvovikAQlkeSm9vkIaVllXSvvt8ISpYbF3FD5UPWAW-bpG52nxvOQtON2xN3WaWNBLH-4G0jsc82fgti13onpWSgKQNI-j_lUKaJPAImjMzvkRMz0m8/s728-rw-e365/router-ddos.png',
   title: 'Mirai Botnet Targets Four-Faith Routers for Evolving DDoS Attacks',
