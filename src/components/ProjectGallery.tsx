@@ -5,6 +5,7 @@ import { Section } from './ui/Section';
 import { GradientText } from './decorative/GradientText';
 import { Dialog } from './ui/Dialog';
 import { projectMedia } from '../data/projectMedia';
+import { motion } from 'framer-motion';
 
 interface Props {
   language: Language;
@@ -28,20 +29,28 @@ export function ProjectGallery({ language }: Props) {
         </p>
       </div>
 
-      {/* Masonry Grid */}
+      {/* Gallery Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projectMedia.map((media) => (
-          <div
+        {projectMedia.map((media, index) => (
+          <motion.div
             key={media.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="group relative aspect-video cursor-pointer overflow-hidden rounded-xl bg-gray-900/50 backdrop-blur-sm"
             onClick={() => setSelectedMedia(media)}
-            className="group relative aspect-video cursor-pointer overflow-hidden rounded-xl bg-gray-900"
           >
             {media.type === 'image' ? (
-              <img
-                src={media.url}
-                alt={language === 'en' ? media.title : media.titleEs}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-              />
+              <>
+                <img
+                  src={media.url}
+                  alt={language === 'en' ? media.title : media.titleEs}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/20 transition-opacity duration-300" />
+              </>
             ) : (
               <div className="relative h-full w-full">
                 <div className="absolute inset-0 bg-black/50" />
@@ -64,7 +73,7 @@ export function ProjectGallery({ language }: Props) {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
