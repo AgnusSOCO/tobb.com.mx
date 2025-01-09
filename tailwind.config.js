@@ -37,8 +37,25 @@ export default {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' }
         }
-      }
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#fff',
+            h1: { color: '#fff' },
+            h2: { color: '#fff' },
+            h3: { color: '#fff' },
+            h4: { color: '#fff' },
+            strong: { color: '#fff' },
+            a: { color: '#F4ED1F' },
+            code: { color: '#F4ED1F' },
+            'ul > li::marker': { color: '#F4ED1F' },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
