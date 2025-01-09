@@ -2,16 +2,19 @@ import React from 'react';
 import type { Language } from '../types';
 import { Section } from '../components/ui/Section';
 import { GradientText } from '../components/decorative/GradientText';
-import { InnovationProjectCard } from '../components/InnovationProjectCard';
+import { ArticleCard } from '../components/ArticleCard';
 import { Brain } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { innovationProjects } from '../data/innovationProjects';
+import { articles } from '../data/articles';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   language: Language;
 }
 
 export function InnovationLabPage({ language }: Props) {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -65,20 +68,21 @@ export function InnovationLabPage({ language }: Props) {
         </motion.div>
       </Section>
 
-      {/* Projects Section */}
+      {/* Articles Section */}
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {innovationProjects.map((project, index) => (
+          {articles.map((article, index) => (
             <motion.div
-              key={project.id}
+              key={article.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              <InnovationProjectCard
-                project={project}
+              <ArticleCard
+                article={article}
                 language={language}
+                onClick={() => navigate(`/articles/${article.id}`)}
               />
             </motion.div>
           ))}
