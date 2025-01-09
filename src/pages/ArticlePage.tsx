@@ -12,6 +12,7 @@ import { Toast } from '../components/ui/Toast';
 import { shareArticle } from '../utils/share';
 import ReactMarkdown from 'react-markdown';
 import { Card } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
 
 interface Props {
   language: Language;
@@ -40,11 +41,74 @@ export function ArticlePage({ language }: Props) {
 
   React.useEffect(() => {
     // Update meta tags
-    document.title = `${language === 'en' ? article.title : article.titleEs} | több`;
+    const title = language === 'en' ? article.title : article.titleEs;
+    const description = language === 'en' ? article.description : article.descriptionEs;
+    const url = `${window.location.origin}/articles/${article.id}`;
+
+    document.title = `${title} | több`;
+
+    // Update standard meta tags
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', language === 'en' ? article.description : article.descriptionEs);
+      metaDescription.setAttribute('content', description);
     }
+
+    // Update Open Graph meta tags
+    const updateMetaTag = (property: string, content: string) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('property', property);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    };
+
+    updateMetaTag('og:title', title);
+    updateMetaTag('og:description', description);
+    updateMetaTag('og:url', url);
+    updateMetaTag('og:image', article.image);
+    updateMetaTag('og:type', 'article');
+
+    // Update Twitter Card meta tags
+    const updateTwitterTag = (name: string, content: string) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    };
+
+    updateTwitterTag('twitter:card', 'summary_large_image');
+    updateTwitterTag('twitter:title', title);
+    updateTwitterTag('twitter:description', description);
+    updateTwitterTag('twitter:image', article.image);
+
+    // Update article schema
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: title,
+      description: description,
+      image: article.image,
+      datePublished: article.date,
+      url: url
+    };
+
+    const scriptTag = document.getElementById('article-schema');
+    if (scriptTag) {
+      scriptTag.textContent = JSON.stringify(schema);
+    }
+
+    // Cleanup function
+    return () => {
+      document.title = 'több | Securing Tomorrow, Innovating Today';
+      if (metaDescription) {
+        metaDescription.setAttribute('content', 'Leading cybersecurity and technology solutions provider in Mexico. Empowering businesses with next-generation security solutions and cutting-edge innovation.');
+      }
+    };
   }, [article, language]);
 
   const handleShare = async () => {
@@ -54,7 +118,7 @@ export function ArticlePage({ language }: Props) {
     }
   };
 
-  const handleArticleNavigation = (articleId: string) => {
+  const navigateToArticle = (articleId: string) => {
     navigate(`/articles/${articleId}`);
     window.scrollTo(0, 0);
   };
@@ -164,12 +228,12 @@ export function ArticlePage({ language }: Props) {
             </div>
           </section>
 
-          {/* Article Navigation */}
+          {/* Navigation */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
             {prevArticle && (
               <Card
-                className="group cursor-pointer p-6 hover:bg-white/[0.02]"
-                onClick={() => handleArticleNavigation(prevArticle.id)}
+                className="group cursor-pointer p-6"
+                onClick={() => navigateToArticle(prevArticle.id)}
               >
                 <div className="flex items-center gap-4">
                   <ArrowLeft className="w-5 h-5 text-[#F4ED1F] group-hover:-translate-x-1 transition-transform" />
@@ -184,10 +248,11 @@ export function ArticlePage({ language }: Props) {
                 </div>
               </Card>
             )}
+
             {nextArticle && (
               <Card
-                className="group cursor-pointer p-6 hover:bg-white/[0.02]"
-                onClick={() => handleArticleNavigation(nextArticle.id)}
+                className="group cursor-pointer p-6"
+                onClick={() => navigateToArticle(nextArticle.id)}
               >
                 <div className="flex items-center justify-end gap-4">
                   <div className="text-right">
@@ -202,6 +267,20 @@ export function ArticlePage({ language }: Props) {
                 </div>
               </Card>
             )}
+          </div>
+
+          {/* Back to Articles */}
+          <div className="flex justify-center mt-12">
+            <Button
+              variant="secondary"
+              onClick={() => navigate('/innovation-lab')}
+              className="group"
+            >
+              <span className="flex items-center gap-2">
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                {language === 'en' ? 'Back to Articles' : 'Volver a Artículos'}
+              </span>
+            </Button>
           </div>
         </div>
       </Section>
