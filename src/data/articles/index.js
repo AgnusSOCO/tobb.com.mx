@@ -3,8 +3,8 @@ import { firescamArticle } from './firescam';
 import { miraiArticle } from './mirai';
 import { ukraineEspionageArticle } from './ukraine-espionage';
 
-export const articles = [
-  ukraineEspionageArticle,
+export const articles: Article[] = [
+  ukraineEspionageArticle, // Most recent first
   firescamArticle,
   miraiArticle
 ];
