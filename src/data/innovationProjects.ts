@@ -1,154 +1,214 @@
-export const innovationProjects = [
+import type { InnovationProject } from '../types';
+
+export const innovationProjects: InnovationProject[] = [
   {
-    id: 'quantum-security',
-    title: 'Quantum Security Research',
-    titleEs: 'Investigación en Seguridad Cuántica',
-    description: 'Exploring quantum-resistant cryptography and its applications in cybersecurity.',
-    descriptionEs: 'Explorando la criptografía resistente a la computación cuántica y sus aplicaciones en ciberseguridad.',
-    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80',
+    id: 'firescam-malware',
+    title: 'FireScam Malware Disguises as Telegram Premium to Hijack Devices',
+    titleEs: 'Malware FireScam se Disfraza de Telegram Premium para Controlar Dispositivos',
+    description: 'The FireScam Android malware is a cunning imposter, masquerading as a premium version of Telegram to steal sensitive data and maintain remote control over compromised devices.',
+    descriptionEs: 'El malware FireScam para Android se hace pasar por una versión premium de Telegram para robar datos sensibles y mantener control remoto sobre dispositivos comprometidos.',
+    image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80',
     highlights: [
       {
-        text: 'Post-quantum cryptographic algorithms development',
-        textEs: 'Desarrollo de algoritmos criptográficos post-cuánticos'
+        text: 'Multi-stage attack using dropper APK for payload delivery',
+        textEs: 'Ataque en múltiples etapas usando APK dropper para entregar su carga'
       },
       {
-        text: 'Quantum key distribution research',
-        textEs: 'Investigación en distribución de claves cuánticas'
+        text: 'Monitors notifications, user actions, and clipboard content',
+        textEs: 'Monitorea notificaciones, acciones del usuario y contenido del portapapeles'
       },
       {
-        text: 'Future-proof security solutions',
-        textEs: 'Soluciones de seguridad a prueba de futuro'
+        text: 'Uses Firebase Cloud Messaging for covert communication',
+        textEs: 'Utiliza Firebase Cloud Messaging para comunicaciones encubiertas'
+      },
+      {
+        text: 'Blocks legitimate app updates to maintain persistence',
+        textEs: 'Bloquea actualizaciones legítimas para mantener persistencia'
       }
     ],
     technicalDetails: {
-      content: `Our quantum security research focuses on developing cryptographic systems that can withstand attacks from both classical and quantum computers. Key areas include:
+      content: `## Key Threats
 
-- Development of lattice-based cryptography
-- Implementation of hash-based digital signatures
-- Research into multivariate cryptographic systems
-- Quantum random number generation
-- Integration with existing security infrastructure`,
-      contentEs: `Nuestra investigación en seguridad cuántica se centra en desarrollar sistemas criptográficos que puedan resistir ataques tanto de computadoras clásicas como cuánticas. Las áreas clave incluyen:
+### Multi-Stage Attack
+FireScam begins with a dropper APK that delivers its main payload, stealing data like messages, notifications, and app activity. It even claims "update ownership," blocking legitimate app updates to stay undetected.
 
-- Desarrollo de criptografía basada en retículos
-- Implementación de firmas digitales basadas en hash
-- Investigación en sistemas criptográficos multivariables
-- Generación cuántica de números aleatorios
-- Integración con infraestructura de seguridad existente`
+### Widespread Surveillance
+The malware monitors:
+- Incoming notifications
+- User actions
+- E-commerce activity
+- Clipboard content
+- Contacts and SMS
+- Call logs
+
+It also displays a fake Telegram login page to steal credentials.
+
+### Persistent Control
+FireScam establishes covert communication with its command-and-control server using:
+- Firebase Cloud Messaging
+- WebSocket connections
+- Automated data exfiltration
+- Remote command execution
+
+## Why It Matters
+FireScam showcases the growing sophistication of phishing attacks, exploiting user trust in legitimate platforms like RuStore to spread malware. By leveraging advanced obfuscation techniques, it evades detection while wreaking havoc on Android devices.
+
+## Több's Take
+At Több, we see FireScam as a stark reminder of the evolving cyber threat landscape. Our AI-driven solutions protect against advanced threats like this by combining:
+- Proactive cybersecurity
+- Physical safeguards
+- Future-focused innovation
+
+Trust us to safeguard what matters most.`,
+      contentEs: `## Principales Amenazas
+
+### Ataque en Múltiples Etapas
+FireScam comienza con un APK de "dropper" que entrega su carga principal, robando datos como mensajes, notificaciones y actividad en aplicaciones. Incluso bloquea actualizaciones legítimas al reclamar "propiedad de actualización," asegurando su persistencia.
+
+### Vigilancia Extensa
+El malware monitorea:
+- Notificaciones entrantes
+- Acciones del usuario
+- Actividad de comercio electrónico
+- Contenido del portapapeles
+- Contactos y SMS
+- Registros de llamadas
+
+También muestra una falsa página de inicio de sesión de Telegram para robar credenciales.
+
+### Control Persistente
+FireScam establece comunicaciones encubiertas con su servidor de comando y control utilizando:
+- Firebase Cloud Messaging
+- Conexiones WebSocket
+- Exfiltración automatizada de datos
+- Ejecución remota de comandos
+
+## Por Qué Importa
+FireScam demuestra la creciente sofisticación de los ataques de phishing, explotando la confianza del usuario en plataformas legítimas como RuStore para propagar malware. Con técnicas avanzadas de ofuscación, evade detección mientras compromete dispositivos Android.
+
+## El Enfoque de Több
+En Több, vemos a FireScam como un recordatorio del panorama de amenazas en constante evolución. Nuestras soluciones impulsadas por IA protegen contra amenazas avanzadas como esta, combinando:
+- Ciberseguridad proactiva
+- Salvaguardas físicas
+- Innovación enfocada en el futuro
+
+Confíe en Több para proteger lo que más importa.`
     }
   },
   {
-    id: 'ai-threat-detection',
-    title: 'AI-Powered Threat Detection',
-    titleEs: 'Detección de Amenazas con IA',
-    description: 'Advanced threat detection systems using artificial intelligence and machine learning.',
-    descriptionEs: 'Sistemas avanzados de detección de amenazas utilizando inteligencia artificial y aprendizaje automático.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80',
+    id: 'mirai-botnet-four-faith',
+    title: 'Mirai Botnet Targets Four-Faith Routers for Evolving DDoS Attacks',
+    titleEs: 'El Botnet Mirai Apunta a Routers Four-Faith para Atacar con DDoS Evolutivos',
+    description: 'A sophisticated Mirai botnet variant is exploiting a critical vulnerability in Four-Faith industrial routers to launch destructive distributed denial-of-service (DDoS) attacks.',
+    descriptionEs: 'Una variante avanzada del botnet Mirai está explotando una vulnerabilidad crítica en los routers industriales Four-Faith para lanzar ataques destructivos de denegación de servicio distribuido (DDoS).',
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTE3bIh1TuXKvpQH8Z0CyQ3JKpEZz5P5Itjj6zkYwatUvJeCfh-oeGGnNRHN-unji8nqsmrGTbeuvovikAQlkeSm9vkIaVllXSvvt8ISpYbF3FD5UPWAW-bpG52nxvOQtON2xN3WaWNBLH-4G0jsc82fgti13onpWSgKQNI-j_lUKaJPAImjMzvkRMz0m8/s728-rw-e365/router-ddos.png',
     highlights: [
       {
-        text: 'Real-time threat analysis and response',
-        textEs: 'Análisis y respuesta a amenazas en tiempo real'
+        text: 'Controls 15,000 active IPs daily across key regions',
+        textEs: 'Controla 15,000 IPs activas diariamente en regiones clave'
       },
       {
-        text: 'Behavioral pattern recognition',
-        textEs: 'Reconocimiento de patrones de comportamiento'
+        text: 'Exploits over 20 known vulnerabilities including zero-day flaws',
+        textEs: 'Explota más de 20 vulnerabilidades conocidas, incluidas fallas de día cero'
       },
       {
-        text: 'Predictive security measures',
-        textEs: 'Medidas de seguridad predictivas'
+        text: 'Launches DDoS attacks with traffic peaks of 100 Gbps',
+        textEs: 'Lanza ataques DDoS con picos de tráfico de 100 Gbps'
+      },
+      {
+        text: 'Targets Four-Faith router models F3x24 and F3x36',
+        textEs: 'Apunta a modelos de router Four-Faith F3x24 y F3x36'
       }
     ],
     technicalDetails: {
-      content: `Our AI-powered threat detection system leverages advanced machine learning algorithms to:
+      content: `## The Threat at a Glance
 
-- Analyze network traffic patterns in real-time
-- Detect anomalies using deep learning models
-- Implement automated threat response mechanisms
-- Utilize natural language processing for threat intelligence
-- Employ computer vision for physical security monitoring`,
-      contentEs: `Nuestro sistema de detección de amenazas impulsado por IA utiliza algoritmos avanzados de aprendizaje automático para:
+The botnet, dubbed "gayfemboy" (a term embedded in its offensive source code), controls 15,000 active IPs daily across key regions like China, the U.S., Iran, and Turkey. This malware leverages over 20 known vulnerabilities, including a zero-day flaw (CVE-2024-12856) in Four-Faith routers. Exploiting weak credentials, the botnet infiltrates router models F3x24 and F3x36 to execute DDoS campaigns with traffic peaks of 100 Gbps.
 
-- Analizar patrones de tráfico de red en tiempo real
-- Detectar anomalías usando modelos de aprendizaje profundo
-- Implementar mecanismos automatizados de respuesta a amenazas
-- Utilizar procesamiento de lenguaje natural para inteligencia de amenazas
-- Emplear visión por computadora para monitoreo de seguridad física`
-    }
-  },
-  {
-    id: 'blockchain-security',
-    title: 'Blockchain Security Solutions',
-    titleEs: 'Soluciones de Seguridad Blockchain',
-    description: 'Developing secure blockchain solutions for enterprise applications.',
-    descriptionEs: 'Desarrollando soluciones blockchain seguras para aplicaciones empresariales.',
-    image: 'https://images.unsplash.com/photo-1644143379190-08a5f055de1d?auto=format&fit=crop&q=80',
-    highlights: [
-      {
-        text: 'Smart contract security auditing',
-        textEs: 'Auditoría de seguridad de contratos inteligentes'
-      },
-      {
-        text: 'Distributed ledger security',
-        textEs: 'Seguridad de registros distribuidos'
-      },
-      {
-        text: 'Blockchain-based identity management',
-        textEs: 'Gestión de identidad basada en blockchain'
-      }
-    ],
-    technicalDetails: {
-      content: `Our blockchain security research focuses on:
+## Key Vulnerabilities
 
-- Smart contract vulnerability analysis and prevention
-- Development of secure consensus mechanisms
-- Implementation of zero-knowledge proofs
-- Cross-chain security protocols
-- Secure key management systems for blockchain networks`,
-      contentEs: `Nuestra investigación en seguridad blockchain se centra en:
+The botnet arsenal spans vulnerabilities as old as CVE-2013-3307 to recent flaws like CVE-2024-8957. Its modus operandi includes:
 
-- Análisis y prevención de vulnerabilidades en contratos inteligentes
-- Desarrollo de mecanismos seguros de consenso
-- Implementación de pruebas de conocimiento cero
-- Protocolos de seguridad entre cadenas
-- Sistemas seguros de gestión de claves para redes blockchain`
-    }
-  },
-  {
-    id: 'zero-trust-architecture',
-    title: 'Zero Trust Architecture Research',
-    titleEs: 'Investigación en Arquitectura de Confianza Cero',
-    description: 'Advancing the implementation of zero trust security models in enterprise environments.',
-    descriptionEs: 'Avanzando en la implementación de modelos de seguridad de confianza cero en entornos empresariales.',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80',
-    highlights: [
-      {
-        text: 'Continuous authentication systems',
-        textEs: 'Sistemas de autenticación continua'
-      },
-      {
-        text: 'Micro-segmentation strategies',
-        textEs: 'Estrategias de micro-segmentación'
-      },
-      {
-        text: 'Identity-based security controls',
-        textEs: 'Controles de seguridad basados en identidad'
-      }
-    ],
-    technicalDetails: {
-      content: `Our zero trust research encompasses:
+- Scanning for unprotected devices
+- Updating itself autonomously
+- Launching swift yet potent DDoS strikes
+- Executing attacks lasting 10–30 seconds
+- Targeting diverse industries with devastating precision
 
-- Development of dynamic access control systems
-- Implementation of continuous monitoring and validation
-- Integration of behavioral analytics
-- Network micro-segmentation techniques
-- Identity and access management innovation`,
-      contentEs: `Nuestra investigación en confianza cero abarca:
+## A Growing Menace
 
-- Desarrollo de sistemas dinámicos de control de acceso
-- Implementación de monitoreo y validación continua
-- Integración de análisis de comportamiento
-- Técnicas de micro-segmentación de red
-- Innovación en gestión de identidad y acceso`
+October and November 2024 saw an alarming escalation in DDoS activities linked to this botnet. This aligns with broader trends, including:
+
+- Recent Mirai malware campaigns exploiting default passwords in Juniper Networks' Session Smart Routers
+- Remote code execution vulnerabilities in DigiEver DVRs
+- Increasing sophistication in attack patterns
+- Wider geographical spread of compromised devices
+
+## Implications for Security
+
+As highlighted by QiAnXin XLab, DDoS attacks have evolved into a dominant cyber threat due to their:
+
+- Stealth capabilities
+- Adaptive nature
+- Precision targeting
+- Combination with emerging vulnerabilities
+- Integration with cryptocurrency miners
+
+## Több's Take
+
+At Több, we see this as a wake-up call for industries to fortify their cyber and physical defenses. Our innovative AI-driven cybersecurity solutions are designed to:
+
+- Adapt dynamically to evolving threats
+- Protect critical infrastructures from botnets
+- Provide real-time threat detection
+- Implement automated response mechanisms
+- Ensure business continuity
+
+The future demands proactive defense—let Több secure yours.`,
+      contentEs: `## La Amenaza en Resumen
+
+El botnet, denominado "gayfemboy" (un término ofensivo incrustado en su código fuente), controla 15,000 IPs activas diariamente en regiones clave como China, EE.UU., Irán y Turquía. Este malware utiliza más de 20 vulnerabilidades conocidas, incluida una falla de día cero (CVE-2024-12856) en los routers Four-Faith. Aprovechando credenciales débiles, el botnet infiltra modelos F3x24 y F3x36 para ejecutar campañas de DDoS con picos de tráfico de 100 Gbps.
+
+## Vulnerabilidades Clave
+
+El arsenal del botnet abarca vulnerabilidades desde CVE-2013-3307 hasta fallas recientes como CVE-2024-8957. Su modus operandi incluye:
+
+- Escanear dispositivos desprotegidos
+- Actualizarse autónomamente
+- Lanzar ataques DDoS rápidos pero devastadores
+- Ejecutar ataques que duran entre 10 y 30 segundos
+- Apuntar a industrias diversas con una precisión alarmante
+
+## Una Amenaza en Crecimiento
+
+Octubre y noviembre de 2024 fueron testigos de un aumento preocupante en las actividades de DDoS vinculadas a este botnet. Esto coincide con:
+
+- Campañas recientes de malware Mirai que explotan contraseñas predeterminadas en routers Juniper Networks Session Smart
+- Vulnerabilidades de ejecución remota de código en DVRs DigiEver
+- Creciente sofisticación en los patrones de ataque
+- Mayor dispersión geográfica de dispositivos comprometidos
+
+## Implicaciones para la Seguridad
+
+Como destacó QiAnXin XLab, los ataques DDoS se han convertido en una amenaza cibernética dominante debido a su:
+
+- Capacidades sigilosas
+- Naturaleza adaptativa
+- Precisión en el objetivo
+- Combinación con nuevas vulnerabilidades
+- Integración con criptominadores
+
+## La Perspectiva de Több
+
+En Több, vemos esto como un llamado a las industrias para fortalecer sus defensas cibernéticas y físicas. Nuestras soluciones innovadoras de ciberseguridad impulsadas por IA están diseñadas para:
+
+- Adaptarse dinámicamente a amenazas en evolución
+- Proteger infraestructuras críticas de botnets
+- Proporcionar detección de amenazas en tiempo real
+- Implementar mecanismos de respuesta automatizados
+- Asegurar la continuidad del negocio
+
+El futuro exige una defensa proactiva. Con Több, asegure su mañana.`
     }
   }
 ];
