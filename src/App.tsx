@@ -6,7 +6,7 @@ import { InnovationLabPage } from './pages/InnovationLab';
 import { ArticlePage } from './pages/ArticlePage';
 import type { Language } from './types';
 
-function App() {
+export default function App() {
   const [language, setLanguage] = React.useState<Language>('en');
 
   return (
@@ -16,12 +16,11 @@ function App() {
           <Outlet />
         </MainLayout>
       }>
-        <Route path="/" element={<HomePage language={language} />} />
+        <Route index element={<HomePage language={language} />} />
         <Route path="/innovation-lab" element={<InnovationLabPage language={language} />} />
         <Route path="/articles/:articleId" element={<ArticlePage language={language} />} />
+        <Route path="*" element={<HomePage language={language} />} />
       </Route>
     </Routes>
   );
 }
-
-export default App;
