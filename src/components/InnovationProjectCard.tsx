@@ -16,13 +16,24 @@ interface Props {
 export function InnovationProjectCard({ project, language }: Props) {
   const [showDetails, setShowDetails] = React.useState(false);
 
+  const handleClick = () => {
+    setShowDetails(true);
+  };
+
+  const handleClose = () => {
+    setShowDetails(false);
+  };
+
+  const handleActionClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
     <>
       <Card 
         className="group cursor-pointer overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300"
-        onClick={() => setShowDetails(true)}
+        onClick={handleClick}
       >
-        {/* Card content stays the same */}
         <div className="relative h-48 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
           <img
@@ -55,11 +66,11 @@ export function InnovationProjectCard({ project, language }: Props) {
       {/* Article Modal */}
       <AnimatePresence>
         {showDetails && (
-          <Dialog onClose={() => setShowDetails(false)} size="xl">
+          <Dialog onClose={handleClose} size="xl">
             <div className="bg-black/90 backdrop-blur-xl rounded-2xl overflow-hidden">
               {/* Close Button */}
               <button
-                onClick={() => setShowDetails(false)}
+                onClick={handleClose}
                 className="absolute top-4 right-4 z-50 p-2 rounded-lg bg-black/50 hover:bg-black/70 transition-colors group"
               >
                 <X className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
@@ -85,7 +96,7 @@ export function InnovationProjectCard({ project, language }: Props) {
                 </div>
               </div>
 
-              {/* Rest of the modal content stays the same */}
+              {/* Content */}
               <div className="max-w-4xl mx-auto px-6 md:px-8 py-12">
                 <div className="flex items-center gap-6 mb-12 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
@@ -96,7 +107,7 @@ export function InnovationProjectCard({ project, language }: Props) {
                     <IconButton
                       variant="secondary"
                       size="sm"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={handleActionClick}
                       className="hover:text-[#F4ED1F]"
                     >
                       <Share2 className="w-4 h-4" />
@@ -104,7 +115,7 @@ export function InnovationProjectCard({ project, language }: Props) {
                     <IconButton
                       variant="secondary"
                       size="sm"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={handleActionClick}
                       className="hover:text-[#F4ED1F]"
                     >
                       <Bookmark className="w-4 h-4" />
