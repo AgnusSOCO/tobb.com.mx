@@ -8,6 +8,8 @@ import { formatDate } from '../utils/date';
 import { Dialog } from './ui/Dialog';
 import { GradientText } from './decorative/GradientText';
 import { IconButton } from './ui/IconButton';
+import { Toast } from './ui/Toast';
+import { shareArticle } from '../utils/share';
 import ReactMarkdown from 'react-markdown';
 
 interface Props {
@@ -17,6 +19,15 @@ interface Props {
 
 export function ArticleCard({ article, language }: Props) {
   const [showDetails, setShowDetails] = React.useState(false);
+  const [showToast, setShowToast] = React.useState(false);
+
+  const handleShare = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const shared = await shareArticle(article, language);
+    if (shared) {
+      setShowToast(true);
+    }
+  };
 
   return (
     <>
@@ -35,7 +46,14 @@ export function ArticleCard({ article, language }: Props) {
           <div className="absolute inset-0 bg-[#F4ED1F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
         </div>
 
-        <div className="p-6 relative space-y-4">
+        <div className="p-6 relative">
+          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#F4ED1F] transition-colors line-clamp-2">
+            {language === 'en' ? article.title : article.titleEs}
+          </h3>
+          <p className="text-gray-400 mb-4 line-clamp-2">
+            {language === 'en' ? article.description : article.descriptionEs}
+          </p>
+
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
@@ -45,23 +63,6 @@ export function ArticleCard({ article, language }: Props) {
               <Clock className="w-4 h-4" />
               <span>{article.readingTime} min read</span>
             </div>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#F4ED1F] transition-colors line-clamp-2">
-              {language === 'en' ? article.title : article.titleEs}
-            </h3>
-            <p className="text-gray-400 line-clamp-2">
-              {language === 'en' ? article.description : article.descriptionEs}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {article.tags.map(tag => (
-              <Badge key={tag} variant="secondary" size="sm">
-                {tag}
-              </Badge>
-            ))}
           </div>
         </div>
       </Card>
@@ -79,40 +80,32 @@ export function ArticleCard({ article, language }: Props) {
             </button>
 
             {/* Hero Section */}
-            <div className="relative min-h-[60vh] sm:min-h-[50vh] flex flex-col">
-              {/* Image Background */}
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 z-10" />
+            <div className="relative">
+              <div className="relative h-[30vh] sm:h-[40vh] md:h-[50vh]">
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                 <img
                   src={article.image}
                   alt={language === 'en' ? article.title : article.titleEs}
                   className="w-full h-full object-cover"
                 />
               </div>
-
-              {/* Content Overlay */}
-              <div className="relative z-20 flex flex-col justify-end h-full p-6 sm:p-8 md:p-12">
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {article.tags.map(tag => (
-                    <Badge key={tag} variant="secondary" size="sm">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Title & Description */}
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
                   <GradientText>
                     {language === 'en' ? article.title : article.titleEs}
                   </GradientText>
-                </h1>
-                
-                <p className="text-base sm:text-lg text-gray-300 mb-6">
+                </h2>
+                <p className="text-lg sm:text-xl text-gray-300">
                   {language === 'en' ? article.description : article.descriptionEs}
                 </p>
+              </div>
+            </div>
 
-                {/* Metadata */}
+            {/* Article Content */}
+            <div className="max-w-4xl mx-auto px-6 sm:px-8 py-8 sm:py-12">
+              {/* Metadata and Actions */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
                 <div className="flex items-center gap-6 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
@@ -123,36 +116,40 @@ export function ArticleCard({ article, language }: Props) {
                     <span>{article.readingTime} min read</span>
                   </div>
                 </div>
+                <div className="flex gap-2">
+                  <IconButton
+                    variant="secondary"
+                    size="sm"
+                    onClick={handleShare}
+                    className="hover:text-[#F4ED1F]"
+                  >
+                    <Share2 className="w-4 h-4" />
+                  </IconButton>
+                  <IconButton
+                    variant="secondary"
+                    size="sm"
+                    onClick={(e) => e.stopPropagation()}
+                    className="hover:text-[#F4ED1F]"
+                  >
+                    <Bookmark className="w-4 h-4" />
+                  </IconButton>
+                </div>
               </div>
-            </div>
 
-            {/* Article Content */}
-            <div className="max-w-4xl mx-auto px-6 sm:px-8 py-8 sm:py-12">
-              {/* Action Buttons */}
-              <div className="flex justify-end gap-2 mb-8">
-                <IconButton
-                  variant="secondary"
-                  size="sm"
-                  onClick={(e) => e.stopPropagation()}
-                  className="hover:text-[#F4ED1F]"
-                >
-                  <Share2 className="w-4 h-4" />
-                </IconButton>
-                <IconButton
-                  variant="secondary"
-                  size="sm"
-                  onClick={(e) => e.stopPropagation()}
-                  className="hover:text-[#F4ED1F]"
-                >
-                  <Bookmark className="w-4 h-4" />
-                </IconButton>
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {article.tags.map(tag => (
+                  <Badge key={tag} variant="secondary" size="sm">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
 
               {/* Key Highlights */}
               <section className="mb-12">
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
                   {language === 'en' ? 'Key Highlights' : 'Aspectos Destacados'}
-                </h2>
+                </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {article.highlights.map((highlight, index) => (
                     <div
@@ -185,6 +182,13 @@ export function ArticleCard({ article, language }: Props) {
           </div>
         </Dialog>
       )}
+
+      {/* Toast Notification */}
+      <Toast
+        message={language === 'en' ? 'Link copied to clipboard!' : '¡Enlace copiado al portapapeles!'}
+        show={showToast}
+        onClose={() => setShowToast(false)}
+      />
     </>
   );
 }
