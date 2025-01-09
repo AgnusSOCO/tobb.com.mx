@@ -1,13 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Sparkles } from 'lucide-react';
 import type { Language } from '../types';
 import { Section } from './ui/Section';
 import { GradientText } from './decorative/GradientText';
-import { Card } from './ui/Card';
-import { innovationProjects } from '../data/innovationProjects';
-import { InnovationProjectCard } from './InnovationProjectCard';
 import { Button } from './ui/Button';
-import { Sparkles } from 'lucide-react';
+import { ArticleCard } from './ArticleCard';
+import { articles } from '../data/articles';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   language: Language;
@@ -15,6 +15,7 @@ interface Props {
 
 export function InnovationLab({ language }: Props) {
   const navigate = useNavigate();
+  const latestArticles = articles.slice(0, 3); // Show only the 3 most recent articles
 
   return (
     <Section id="innovation-lab" className="relative">
@@ -47,12 +48,20 @@ export function InnovationLab({ language }: Props) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {innovationProjects.slice(0, 3).map((project, index) => (
-          <InnovationProjectCard
-            key={project.id}
-            project={project}
-            language={language}
-          />
+        {latestArticles.map((article, index) => (
+          <motion.div
+            key={article.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <ArticleCard
+              article={article}
+              language={language}
+              onClick={() => navigate(`/innovation-lab/articles/${article.id}`)}
+            />
+          </motion.div>
         ))}
       </div>
     </Section>
