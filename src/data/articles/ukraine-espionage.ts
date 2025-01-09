@@ -2,7 +2,7 @@ import type { Article } from '../../types/article';
 
 export const ukraineEspionageArticle: Article = {
   id: 'ukraine-minors-espionage',
-  date: '2024-03-16',
+  date: '2025-01-08',
   type: 'security',
   image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzxYYFxvuAQyAWX0M_LSTcNzvHzTEzoNt-64ueJovwTc0v4r_cqJsAUOCqie_rmjeeEfxbmhbIXIrHy3v4g2pOrH-OfvmG73HDmwSEZ5fsVYj87J6C10sZuI67W0IcJywmk4XXwK74Vj70bd2otydOmA6PQ9n1x45eYMSVKrjb9SnX4Oirs9JTPHw9IFUc/s728-rw-e365/russian.png',
   title: 'Ukrainian Minors Exploited for Espionage and Reconnaissance',
