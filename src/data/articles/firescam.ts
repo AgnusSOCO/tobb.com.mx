@@ -2,7 +2,7 @@ import type { Article } from '../../types/article';
 
 export const firescamArticle: Article = {
   id: 'firescam-malware',
-  date: '2024-03-15',
+  date: '2025-01-08',
   type: 'security',
   image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80',
   title: 'FireScam Malware Disguises as Telegram Premium to Hijack Devices',
