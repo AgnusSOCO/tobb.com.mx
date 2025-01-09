@@ -20,11 +20,11 @@ export function ArticleCard({ article, language }: Props) {
 
   return (
     <>
+      {/* Card Preview */}
       <Card 
         className="group cursor-pointer overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300"
         onClick={() => setShowDetails(true)}
       >
-        {/* Image */}
         <div className="relative h-48 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
           <img
@@ -35,9 +35,7 @@ export function ArticleCard({ article, language }: Props) {
           <div className="absolute inset-0 bg-[#F4ED1F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
         </div>
 
-        {/* Content */}
         <div className="p-6 relative space-y-4">
-          {/* Metadata */}
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
@@ -49,9 +47,8 @@ export function ArticleCard({ article, language }: Props) {
             </div>
           </div>
 
-          {/* Title & Description */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#F4ED1F] transition-colors">
+            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#F4ED1F] transition-colors line-clamp-2">
               {language === 'en' ? article.title : article.titleEs}
             </h3>
             <p className="text-gray-400 line-clamp-2">
@@ -59,7 +56,6 @@ export function ArticleCard({ article, language }: Props) {
             </p>
           </div>
 
-          {/* Tags */}
           <div className="flex flex-wrap gap-2">
             {article.tags.map(tag => (
               <Badge key={tag} variant="secondary" size="sm">
@@ -77,35 +73,46 @@ export function ArticleCard({ article, language }: Props) {
             {/* Close Button */}
             <button
               onClick={() => setShowDetails(false)}
-              className="absolute top-4 right-4 z-50 p-2 rounded-lg bg-black/50 hover:bg-black/70 transition-colors group"
+              className="fixed top-4 right-4 z-50 p-2 rounded-lg bg-black/50 hover:bg-black/70 transition-colors group"
             >
               <X className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
             </button>
 
-            {/* Hero Image */}
-            <div className="relative h-96">
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-              <img
-                src={article.image}
-                alt={language === 'en' ? article.title : article.titleEs}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <h2 className="text-4xl font-bold mb-4">
+            {/* Hero Section */}
+            <div className="relative min-h-[60vh] sm:min-h-[50vh] flex flex-col">
+              {/* Image Background */}
+              <div className="absolute inset-0">
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 z-10" />
+                <img
+                  src={article.image}
+                  alt={language === 'en' ? article.title : article.titleEs}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Content Overlay */}
+              <div className="relative z-20 flex flex-col justify-end h-full p-6 sm:p-8 md:p-12">
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {article.tags.map(tag => (
+                    <Badge key={tag} variant="secondary" size="sm">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+
+                {/* Title & Description */}
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   <GradientText>
                     {language === 'en' ? article.title : article.titleEs}
                   </GradientText>
-                </h2>
-                <p className="text-xl text-gray-300">
+                </h1>
+                
+                <p className="text-base sm:text-lg text-gray-300 mb-6">
                   {language === 'en' ? article.description : article.descriptionEs}
                 </p>
-              </div>
-            </div>
 
-            {/* Content */}
-            <div className="max-w-4xl mx-auto px-6 md:px-8 py-12">
-              {/* Metadata */}
-              <div className="flex items-center justify-between mb-12">
+                {/* Metadata */}
                 <div className="flex items-center gap-6 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
@@ -116,41 +123,37 @@ export function ArticleCard({ article, language }: Props) {
                     <span>{article.readingTime} min read</span>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <IconButton
-                    variant="secondary"
-                    size="sm"
-                    onClick={(e) => e.stopPropagation()}
-                    className="hover:text-[#F4ED1F]"
-                  >
-                    <Share2 className="w-4 h-4" />
-                  </IconButton>
-                  <IconButton
-                    variant="secondary"
-                    size="sm"
-                    onClick={(e) => e.stopPropagation()}
-                    className="hover:text-[#F4ED1F]"
-                  >
-                    <Bookmark className="w-4 h-4" />
-                  </IconButton>
-                </div>
               </div>
+            </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {article.tags.map(tag => (
-                  <Badge key={tag} variant="secondary" size="sm">
-                    {tag}
-                  </Badge>
-                ))}
+            {/* Article Content */}
+            <div className="max-w-4xl mx-auto px-6 sm:px-8 py-8 sm:py-12">
+              {/* Action Buttons */}
+              <div className="flex justify-end gap-2 mb-8">
+                <IconButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={(e) => e.stopPropagation()}
+                  className="hover:text-[#F4ED1F]"
+                >
+                  <Share2 className="w-4 h-4" />
+                </IconButton>
+                <IconButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={(e) => e.stopPropagation()}
+                  className="hover:text-[#F4ED1F]"
+                >
+                  <Bookmark className="w-4 h-4" />
+                </IconButton>
               </div>
 
               {/* Key Highlights */}
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-white mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">
                   {language === 'en' ? 'Key Highlights' : 'Aspectos Destacados'}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {article.highlights.map((highlight, index) => (
                     <div
                       key={index}
