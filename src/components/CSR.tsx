@@ -54,7 +54,7 @@ export function CSR({ language }: Props) {
               <div className="absolute inset-0 bg-gradient-to-br from-[#F4ED1F]/5 to-transparent rounded-2xl" />
               <div className="relative flex items-center gap-4">
                 <img
-                  src="/foundation-logo.png"
+                  src="/csr.png"
                   alt="Hogar Dulce Hogar Foundation"
                   className="h-16 object-contain"
                 />
