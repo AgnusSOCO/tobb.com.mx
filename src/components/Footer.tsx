@@ -75,7 +75,7 @@ export function Footer({ language }: Props) {
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#F4ED1F] transition-colors"
                 >
-                  {language === 'en' ? 'Terms of Service' : 'Términos de Servicio'}
+                  {language === 'en' ? 'Integrated Management System Policy' : 'Política del Sistema de Gestión Integral'}
                 </a>
               </li>
               <li>
